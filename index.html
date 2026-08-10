@@ -162,6 +162,80 @@ color:#cbd5e1;
 
 
 /* =========================================
+   اسم البطولة في الـHeader
+========================================= */
+
+.header-tournament{
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.13),
+rgba(255,255,255,.05)
+);
+
+border:
+1px solid rgba(255,255,255,.18);
+
+border-radius:12px;
+
+padding:8px 16px;
+
+cursor:pointer;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:800;
+
+transition:
+transform .2s ease,
+background .2s ease,
+box-shadow .2s ease;
+
+box-shadow:
+0 3px 10px #0002;
+
+white-space:nowrap;
+
+}
+
+.header-tournament:hover{
+
+transform:
+translateY(-2px);
+
+background:
+rgba(255,255,255,.18);
+
+box-shadow:
+0 6px 15px #0003;
+
+}
+
+.header-tournament:active{
+
+transform:
+scale(.97);
+
+}
+
+
+/* =========================================
+   اسم النظام
+========================================= */
+
+.header-system{
+
+font-size:15px;
+
+white-space:nowrap;
+
+}
+
+
+/* =========================================
    المحتوى
 ========================================= */
 
@@ -1405,6 +1479,14 @@ font-size:18px;
 
 }
 
+.header-tournament{
+
+font-size:15px;
+
+padding:7px 11px;
+
+}
+
 }
 
 
@@ -1437,6 +1519,20 @@ text-align:center;
 .brand{
 
 justify-content:center;
+
+}
+
+.header-tournament{
+
+order:2;
+
+font-size:15px;
+
+}
+
+.header-system{
+
+order:3;
 
 }
 
@@ -1522,6 +1618,7 @@ padding:
 
 <div class="header-inner">
 
+
 <div class="brand">
 
 <div class="brand-icon">
@@ -1543,9 +1640,20 @@ Chess Tournament Manager
 </div>
 
 
-<div>
+<!-- اسم البطولة الجديد -->
+
+<button
+class="header-tournament"
+onclick="showTournamentInfo()"
+>
+🏆 بطولة المتابعين
+</button>
+
+
+<div class="header-system">
 🏆 <b>32 Players Knockout</b>
 </div>
+
 
 </div>
 
@@ -1873,6 +1981,30 @@ let currentRound=0;
 
 let tournamentSaved=false;
 
+/*
+   جديد:
+   هل دخل المستخدم إلى البطولة؟
+   يتم حفظها في localStorage
+   حتى لا تظهر الصفحة الرئيسية
+   بعد Refresh أو إعادة فتح الموقع.
+*/
+
+let tournamentEntered=false;
+
+
+/* =========================================
+   معلومات البطولة
+========================================= */
+
+function showTournamentInfo(){
+
+alert(
+"🏆 بطولة المتابعين\n\n" +
+"نظام إدارة بطولة شطرنج بنظام خروج المغلوب"
+);
+
+}
+
 
 /* =========================================
    إنشاء لاعب
@@ -2049,6 +2181,20 @@ createEmptyRound(1)
 
 function enterTournament(){
 
+/*
+   مهم:
+   بمجرد الضغط على الدخول،
+   نسجل أن المستخدم دخل البطولة.
+*/
+
+tournamentEntered=true;
+
+localStorage.setItem(
+"tournamentEntered",
+"true"
+);
+
+
 document
 .getElementById("homeScreen")
 .classList
@@ -2085,9 +2231,11 @@ tournamentSaved=false;
 
 
 /*
-   لو كانت بطولة موجودة
-   نحافظ عليها.
+   نحفظ الحالة فوراً.
 */
+
+saveState();
+
 
 renderRound();
 
@@ -3108,7 +3256,14 @@ currentRound:
 currentRound,
 
 tournamentSaved:
-tournamentSaved
+tournamentSaved,
+
+/*
+   نحفظ أيضاً حالة الدخول
+*/
+
+tournamentEntered:
+tournamentEntered
 
 })
 );
@@ -3135,7 +3290,44 @@ localStorage.getItem(
 );
 
 
+/*
+   نقرأ حالة الدخول حتى لو لم توجد
+   بيانات بطولة كاملة.
+*/
+
+const entered=
+localStorage.getItem(
+"tournamentEntered"
+);
+
+
+tournamentEntered=
+entered==="true";
+
+
+/*
+   لا توجد بطولة محفوظة
+*/
+
 if(!saved){
+
+/*
+   إذا سبق للمستخدم الدخول،
+   ننشئ البطولة وندخله للـDashboard.
+*/
+
+if(tournamentEntered){
+
+rounds=
+createTournamentRounds();
+
+currentRound=0;
+
+tournamentSaved=false;
+
+showTournamentScreen();
+
+}
 
 return;
 
@@ -3166,16 +3358,60 @@ data.tournamentSaved
 
 
 /*
-   لو البيانات سليمة
-   لا نظهرها تلقائيًا.
-   الصفحة الرئيسية تظل هي البداية.
+   نقرأ حالة الدخول من البيانات
+   أو من المفتاح المنفصل.
 */
 
 if(
-rounds.length
+data.tournamentEntered===true
 ){
 
-return;
+tournamentEntered=true;
+
+}
+
+
+/*
+   لو المستخدم دخل البطولة من قبل،
+   لا نظهر الصفحة الرئيسية.
+*/
+
+if(tournamentEntered){
+
+if(!rounds.length){
+
+rounds=
+createTournamentRounds();
+
+currentRound=0;
+
+tournamentSaved=false;
+
+}
+
+
+/*
+   إذا كانت البطولة انتهت
+   نظهر شاشة البطل.
+*/
+
+if(
+rounds.length &&
+currentRound===4 &&
+rounds[4].matches[0] &&
+rounds[4].matches[0].winner
+){
+
+showChampion(
+rounds[4].matches[0].winner
+);
+
+}
+else{
+
+showTournamentScreen();
+
+}
 
 }
 
@@ -3188,7 +3424,54 @@ localStorage.removeItem(
 "chessTournament"
 );
 
+localStorage.removeItem(
+"tournamentEntered"
+);
+
+tournamentEntered=false;
+
 }
+
+}
+
+
+/* =========================================
+   إظهار الـDashboard
+========================================= */
+
+function showTournamentScreen(){
+
+document
+.getElementById("homeScreen")
+.classList
+.add("hidden");
+
+
+document
+.getElementById("championScreen")
+.classList
+.add("hidden");
+
+
+document
+.getElementById("tournamentScreen")
+.classList
+.remove("hidden");
+
+
+if(!rounds.length){
+
+rounds=
+createTournamentRounds();
+
+currentRound=0;
+
+tournamentSaved=false;
+
+}
+
+
+renderRound();
 
 }
 
@@ -3220,6 +3503,10 @@ localStorage.removeItem(
 "chessTournament"
 );
 
+localStorage.removeItem(
+"tournamentEntered"
+);
+
 
 players=[];
 
@@ -3228,6 +3515,8 @@ rounds=[];
 currentRound=0;
 
 tournamentSaved=false;
+
+tournamentEntered=false;
 
 
 /*
@@ -3287,6 +3576,21 @@ if(!winner){
 return;
 
 }
+
+
+/*
+   البطولة ما زالت محفوظة
+   وبالتالي عند فتح الموقع
+   سيعود المستخدم لشاشة البطل
+   وليس الصفحة الرئيسية.
+*/
+
+tournamentEntered=true;
+
+localStorage.setItem(
+"tournamentEntered",
+"true"
+);
 
 
 document
@@ -3720,4 +4024,4 @@ loadTournament();
 
 </body>
 
-   </html>
+</html>
