@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Doctor Nofal | Chess Tournament Manager</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Doctor Nofal | Chess Tournament Manager
+</title>
 
 <style>
 
+/* =========================================
+   الإعدادات العامة
+========================================= */
+
 *{
-box-sizing:border-box
+box-sizing:border-box;
 }
 
 body{
+
 margin:0;
-font-family:Arial,Tahoma,sans-serif;
+
+font-family:
+Arial,
+Tahoma,
+sans-serif;
+
 color:#172033;
 
 background-color:#eef2f7;
 
 background-image:
-linear-gradient(45deg,#dce3eb 25%,transparent 25%),
-linear-gradient(-45deg,#dce3eb 25%,transparent 25%),
-linear-gradient(45deg,transparent 75%,#dce3eb 75%),
-linear-gradient(-45deg,transparent 75%,#dce3eb 75%);
+
+linear-gradient(
+45deg,
+#dce3eb 25%,
+transparent 25%
+),
+
+linear-gradient(
+-45deg,
+#dce3eb 25%,
+transparent 25%
+),
+
+linear-gradient(
+45deg,
+transparent 75%,
+#dce3eb 75%
+),
+
+linear-gradient(
+-45deg,
+transparent 75%,
+#dce3eb 75%
+);
 
 background-size:70px 70px;
 
@@ -34,10 +70,18 @@ background-position:
 -35px 0;
 
 background-blend-mode:multiply;
+
 }
 
+
+/* =========================================
+   Header
+========================================= */
+
 header{
-background:linear-gradient(
+
+background:
+linear-gradient(
 135deg,
 #111827,
 #26364f
@@ -48,10 +92,12 @@ color:#fff;
 padding:22px 30px;
 
 box-shadow:
-0 4px 15px #0002
+0 4px 15px #0002;
+
 }
 
 .header-inner{
+
 max-width:1450px;
 
 margin:auto;
@@ -62,24 +108,29 @@ align-items:center;
 
 justify-content:space-between;
 
-gap:20px
+gap:20px;
+
 }
 
 .brand{
+
 display:flex;
 
 align-items:center;
 
-gap:16px
+gap:16px;
+
 }
 
 .brand-icon{
+
 width:58px;
 height:58px;
 
 border-radius:14px;
 
-background:#fff1;
+background:#ffffff15;
+
 color:#fff;
 
 display:grid;
@@ -88,250 +139,24 @@ place-items:center;
 
 font-size:34px;
 
-border:1px solid #ffffff30
+border:
+1px solid #ffffff30;
+
 }
 
 .brand h1{
+
 margin:0;
 
-font-size:28px
+font-size:28px;
+
 }
 
 .brand p{
+
 margin:5px 0 0;
 
-color:#cbd5e1
-}
-
-
-/* =========================================
-   عنوان البطولة
-========================================= */
-
-.tournament-header-title{
-
-position:relative;
-
-text-align:center;
-
-font-size:25px;
-
-font-weight:900;
-
-color:#facc15;
-
-text-shadow:
-0 0 8px #facc15,
-0 2px 5px #000;
-
-cursor:pointer;
-
-padding:9px 20px;
-
-border-radius:12px;
-
-transition:
-transform .2s ease,
-box-shadow .2s ease,
-background .2s ease;
-
-user-select:none;
-
-white-space:nowrap
-}
-
-.tournament-header-title:hover{
-
-transform:translateY(-2px);
-
-background:rgba(250,204,21,.08);
-
-box-shadow:
-0 0 12px rgba(250,204,21,.22)
-}
-
-.tournament-header-title:active{
-
-transform:scale(.97)
-}
-
-
-/* =========================================
-   فقاعة البطولة
-========================================= */
-
-.promo-bubble{
-
-position:absolute;
-
-top:calc(100% + 13px);
-
-left:50%;
-
-transform:
-translateX(-50%)
-translateY(-15px)
-scale(.92);
-
-width:320px;
-
-padding:13px 17px;
-
-background:
-linear-gradient(
-135deg,
-rgba(30,41,59,.97),
-rgba(120,83,7,.82),
-rgba(30,41,59,.97)
-);
-
-border:1px solid #facc15;
-
-border-radius:13px;
-
-box-shadow:
-0 7px 25px rgba(0,0,0,.35),
-0 0 12px rgba(250,204,21,.22),
-inset 0 0 12px rgba(250,204,21,.08);
-
-z-index:10000;
-
-opacity:0;
-
-visibility:hidden;
-
-pointer-events:none;
-
-font-family:
-"Scheherazade New",
-"Scheherazade",
-Georgia,
-serif;
-
-font-size:17px;
-
-font-weight:600;
-
-line-height:1.55;
-
-color:#fff8dc;
-
-text-align:center;
-
-text-shadow:
-0 1px 4px #000;
-
-transition:
-opacity .35s ease,
-transform .35s ease;
-}
-
-.promo-bubble::before{
-
-content:"";
-
-position:absolute;
-
-top:-7px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(45deg);
-
-width:13px;
-
-height:13px;
-
-background:#72520b;
-
-border-left:1px solid #facc15;
-
-border-top:1px solid #facc15;
-}
-
-.promo-bubble.show{
-
-opacity:1;
-
-visibility:visible;
-
-transform:
-translateX(-50%)
-translateY(0)
-scale(1);
-
-animation:
-bubbleDrop .45s cubic-bezier(.2,.8,.2,1) forwards
-}
-
-.promo-line{
-
-display:block;
-
-white-space:nowrap;
-}
-
-.promo-line + .promo-line{
-
-margin-top:2px
-}
-
-.brilliant-symbol{
-
-color:#00BFFF;
-
-font-family:Arial,sans-serif;
-
-font-weight:900;
-
-text-shadow:
-0 0 6px #00BFFF,
-0 0 12px rgba(0,191,255,.5);
-}
-
-.blunder-symbol{
-
-color:#f87171;
-
-font-family:Arial,sans-serif;
-
-font-weight:900;
-
-font-size:17px;
-
-text-shadow:
-0 0 5px #f87171,
-0 0 10px rgba(248,113,113,.45);
-}
-
-@keyframes bubbleDrop{
-
-0%{
-opacity:0;
-
-transform:
-translateX(-50%)
-translateY(-18px)
-scale(.88)
-}
-
-70%{
-opacity:1;
-
-transform:
-translateX(-50%)
-translateY(3px)
-scale(1.02)
-}
-
-100%{
-opacity:1;
-
-transform:
-translateX(-50%)
-translateY(0)
-scale(1)
-}
+color:#cbd5e1;
 
 }
 
@@ -341,14 +166,17 @@ scale(1)
 ========================================= */
 
 .container{
+
 max-width:1450px;
 
 margin:24px auto;
 
-padding:0 20px
+padding:0 20px;
+
 }
 
 .card{
+
 background:#fff;
 
 border-radius:16px;
@@ -360,218 +188,15 @@ margin-bottom:20px;
 box-shadow:
 0 5px 20px #17203312;
 
-border:1px solid #e5e7eb
+border:
+1px solid #e5e7eb;
+
 }
 
-.toolbar{
-display:flex;
+.hidden{
 
-justify-content:space-between;
+display:none !important;
 
-align-items:center;
-
-gap:15px;
-
-flex-wrap:wrap
-}
-
-.stats{
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:14px;
-
-margin-bottom:20px
-}
-
-.stat{
-background:#fff;
-
-border-radius:14px;
-
-padding:18px;
-
-border:1px solid #e5e7eb;
-
-box-shadow:0 3px 12px #0000000a
-}
-
-.stat b{
-display:block;
-
-font-size:25px;
-
-margin-top:6px
-}
-
-.stat span{
-color:#64748b;
-
-font-size:13px
-}
-
-
-/* =========================================
-   الصفحة الرئيسية
-========================================= */
-
-.home-screen{
-
-min-height:65vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center
-}
-
-.home-box{
-
-width:min(600px,95%);
-
-padding:50px 30px;
-
-background:#fff;
-
-border-radius:20px;
-
-box-shadow:
-0 10px 35px #17203320;
-
-border:1px solid #e5e7eb
-}
-
-.home-icon{
-
-font-size:80px;
-
-margin-bottom:10px
-}
-
-.home-box h2{
-
-font-size:30px;
-
-margin:10px 0;
-
-color:#1e293b
-}
-
-.home-box p{
-
-color:#64748b;
-
-font-size:16px;
-
-margin-bottom:28px
-}
-
-.enter-tournament{
-
-font-size:19px;
-
-padding:15px 35px;
-
-border-radius:12px;
-
-background:
-linear-gradient(
-135deg,
-#2563eb,
-#1d4ed8
-);
-
-color:#fff;
-
-box-shadow:
-0 5px 15px #2563eb55;
-
-transition:.25s
-}
-
-.enter-tournament:hover{
-
-transform:
-translateY(-3px);
-
-box-shadow:
-0 8px 22px #2563eb66
-}
-
-
-/* =========================================
-   إدخال اللاعبين
-========================================= */
-
-.players-grid{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:12px
-}
-
-.player-row{
-
-display:grid;
-
-grid-template-columns:35px 1fr;
-
-gap:7px;
-
-align-items:center
-}
-
-.player-row strong{
-
-text-align:center;
-
-background:#1e293b;
-
-color:#fff;
-
-padding:10px 5px;
-
-border-radius:8px
-}
-
-input{
-
-width:100%;
-
-padding:11px;
-
-border:1px solid #cbd5e1;
-
-border-radius:8px;
-
-font-size:14px;
-
-outline:none;
-
-transition:.2s
-}
-
-input:focus{
-
-border-color:#2563eb;
-
-box-shadow:
-0 0 0 3px #2563eb18
-}
-
-input:disabled{
-
-background:#f1f5f9;
-
-color:#475569;
-
-cursor:not-allowed
 }
 
 
@@ -593,64 +218,70 @@ cursor:pointer;
 
 font-size:14px;
 
-font-weight:600;
+font-weight:700;
 
-transition:.2s
+transition:
+transform .2s ease,
+box-shadow .2s ease,
+opacity .2s ease;
+
 }
 
-button:hover:not(:disabled){
+button:hover{
 
 transform:
-translateY(-1px)
+translateY(-2px);
+
 }
 
 button:disabled{
 
-opacity:.45;
+opacity:.5;
 
-cursor:not-allowed
+cursor:not-allowed;
+
+transform:none;
+
 }
 
 .blue{
 
 background:#2563eb;
 
-color:#fff
+color:#fff;
+
 }
 
 .green{
 
 background:#16a34a;
 
-color:#fff
-}
+color:#fff;
 
-.orange{
-
-background:#ea580c;
-
-color:#fff
 }
 
 .red{
 
 background:#dc2626;
 
-color:#fff
+color:#fff;
+
 }
 
 .gray{
 
 background:#64748b;
 
-color:#fff
+color:#fff;
+
 }
 
 .dark{
 
 background:#1e293b;
 
-color:#fff
+color:#fff;
+
 }
 
 .save-button{
@@ -664,12 +295,200 @@ linear-gradient(
 
 color:#fff;
 
-font-size:16px;
+font-size:15px;
 
-padding:11px 22px;
+padding:
+11px 22px;
 
 box-shadow:
-0 4px 12px #16a34a33
+0 4px 12px #16a34a44;
+
+}
+
+
+/* =========================================
+   الصفحة الرئيسية
+========================================= */
+
+#homeScreen{
+
+min-height:
+calc(100vh - 120px);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.home-card{
+
+width:
+min(650px,95%);
+
+text-align:center;
+
+padding:
+55px 30px;
+
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#f8fafc
+);
+
+border:
+1px solid #e2e8f0;
+
+border-radius:22px;
+
+box-shadow:
+0 15px 40px #17203320;
+
+}
+
+.home-icon{
+
+font-size:90px;
+
+margin-bottom:15px;
+
+filter:
+drop-shadow(
+0 5px 8px #0002
+);
+
+}
+
+.home-card h2{
+
+font-size:32px;
+
+margin:
+10px 0;
+
+color:#172033;
+
+}
+
+.home-card p{
+
+color:#64748b;
+
+font-size:17px;
+
+margin-bottom:30px;
+
+}
+
+.enter-button{
+
+font-size:18px;
+
+padding:
+15px 35px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:#fff;
+
+box-shadow:
+0 7px 20px #2563eb44;
+
+}
+
+
+/* =========================================
+   Toolbar
+========================================= */
+
+.toolbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.toolbar h2{
+
+margin:
+0 0 5px;
+
+}
+
+.toolbar p{
+
+margin:0;
+
+color:#64748b;
+
+}
+
+
+/* =========================================
+   الإحصائيات
+========================================= */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:14px;
+
+margin-bottom:20px;
+
+}
+
+.stat{
+
+background:#fff;
+
+border-radius:14px;
+
+padding:18px;
+
+border:
+1px solid #e5e7eb;
+
+box-shadow:
+0 3px 12px #0000000a;
+
+}
+
+.stat b{
+
+display:block;
+
+font-size:25px;
+
+margin-top:6px;
+
+}
+
+.stat span{
+
+color:#64748b;
+
+font-size:13px;
+
 }
 
 
@@ -681,20 +500,19 @@ box-shadow:
 
 background:#eff6ff;
 
-border:1px solid #bfdbfe;
+border:
+1px solid #bfdbfe;
 
 padding:12px;
 
 border-radius:9px;
 
-margin:15px 0;
+margin-top:15px;
 
-color:#1e40af
-}
+color:#1e40af;
 
-.hidden{
+font-weight:600;
 
-display:none!important
 }
 
 
@@ -706,7 +524,9 @@ display:none!important
 
 overflow-x:auto;
 
-padding:20px 10px 30px
+padding:
+20px 10px 35px;
+
 }
 
 .bracket{
@@ -714,13 +534,20 @@ padding:20px 10px 30px
 display:grid;
 
 grid-template-columns:
-repeat(9,minmax(145px,1fr));
+repeat(
+9,
+minmax(
+155px,
+1fr
+)
+);
 
 gap:18px;
 
-min-width:1500px;
+min-width:1550px;
 
-align-items:stretch
+align-items:stretch;
+
 }
 
 .stage{
@@ -729,7 +556,8 @@ display:flex;
 
 flex-direction:column;
 
-min-width:145px
+min-width:155px;
+
 }
 
 .stage h3{
@@ -742,13 +570,16 @@ color:#fff;
 
 border-radius:9px;
 
-padding:10px 6px;
+padding:
+10px 6px;
 
-margin:0 0 18px;
+margin:
+0 0 18px;
 
 font-size:14px;
 
-white-space:nowrap
+white-space:nowrap;
+
 }
 
 .stage-list{
@@ -761,50 +592,57 @@ justify-content:space-around;
 
 flex:1;
 
-gap:12px
+gap:12px;
+
 }
+
+
+/* =========================================
+   مباراة داخل الشجرة
+========================================= */
 
 .bracket-match{
 
 background:#f8fafc;
 
-border:1px solid #cbd5e1;
+border:
+1px solid #cbd5e1;
 
 border-radius:10px;
 
-overflow:visible;
+overflow:hidden;
 
 box-shadow:
 0 2px 7px #0001;
 
-min-height:62px;
+min-height:68px;
 
 transition:
 transform .2s ease,
 box-shadow .2s ease;
 
-position:relative
 }
 
 .bracket-match:hover{
 
-transform:translateY(-2px);
-
 box-shadow:
-0 5px 14px #0002
+0 5px 14px #0002;
+
 }
 
 .bplayer{
 
-min-height:31px;
+min-height:34px;
 
-padding:7px 9px;
+padding:
+7px 9px;
 
-border-bottom:1px solid #e2e8f0;
+border-bottom:
+1px solid #e2e8f0;
 
 display:flex;
 
-justify-content:space-between;
+justify-content:center;
 
 align-items:center;
 
@@ -812,19 +650,143 @@ gap:6px;
 
 font-size:13px;
 
-transition:
-background .25s ease,
-color .25s ease;
+font-weight:600;
 
-cursor:pointer;
+position:relative;
 
-position:relative
 }
 
 .bplayer:last-child{
 
-border-bottom:0
+border-bottom:0;
+
 }
+
+
+/* =========================================
+   اسم اللاعب في دور 32 أثناء الإدخال
+========================================= */
+
+.player-input{
+
+width:100%;
+
+border:
+1px solid #cbd5e1;
+
+border-radius:7px;
+
+padding:
+8px 7px;
+
+font-size:13px;
+
+text-align:center;
+
+outline:none;
+
+background:#fff;
+
+transition:
+border .2s ease,
+box-shadow .2s ease;
+
+}
+
+.player-input:focus{
+
+border-color:#2563eb;
+
+box-shadow:
+0 0 0 3px #2563eb18;
+
+}
+
+.player-input:disabled{
+
+background:#f1f5f9;
+
+color:#172033;
+
+font-weight:700;
+
+border-color:#cbd5e1;
+
+cursor:not-allowed;
+
+}
+
+
+/* =========================================
+   اللاعبين بعد الحفظ
+========================================= */
+
+.bplayer.saved-player{
+
+cursor:pointer;
+
+background:#fff;
+
+}
+
+.bplayer.saved-player:hover{
+
+background:#f1f5f9;
+
+}
+
+
+/* =========================================
+   زر الفائز
+========================================= */
+
+.winner-action{
+
+display:block;
+
+margin:
+5px auto 3px;
+
+padding:
+5px 10px;
+
+font-size:12px;
+
+background:#16a34a;
+
+color:#fff;
+
+border-radius:6px;
+
+animation:
+winnerButtonShow .25s ease;
+
+}
+
+@keyframes winnerButtonShow{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* =========================================
+   ألوان الفائز والخاسر
+========================================= */
 
 .bplayer.win{
 
@@ -832,7 +794,8 @@ background:#dcfce7;
 
 font-weight:bold;
 
-color:#166534
+color:#166534;
+
 }
 
 .bplayer.lose{
@@ -841,7 +804,6 @@ background:#fee2e2;
 
 color:#991b1b;
 
-cursor:default
 }
 
 .bplayer.empty{
@@ -852,141 +814,76 @@ background:#f8fafc;
 
 font-style:italic;
 
-cursor:default
 }
 
-.bplayer.pending{
 
-background:#fff;
-
-color:#172033
-}
+/* =========================================
+   حركة انتقال اللاعب
+========================================= */
 
 .bplayer.moved{
 
 animation:
-bracketPlayerMove .5s ease
+bracketPlayerMove .5s ease;
+
 }
 
 @keyframes bracketPlayerMove{
 
 0%{
+
 opacity:0;
 
-transform:scale(.75)
+transform:scale(.75);
+
 }
 
 60%{
+
 opacity:1;
 
-transform:scale(1.08)
+transform:scale(1.08);
+
 }
 
 100%{
+
 opacity:1;
 
-transform:scale(1)
+transform:scale(1);
+
 }
 
 }
 
 
 /* =========================================
-   زر الفائز داخل الشجرة
+   النهائي
 ========================================= */
-
-.winner-action{
-
-position:absolute;
-
-z-index:50;
-
-right:50%;
-
-top:50%;
-
-transform:
-translate(50%,-50%);
-
-background:
-linear-gradient(
-135deg,
-#16a34a,
-#15803d
-);
-
-color:#fff;
-
-padding:7px 13px;
-
-font-size:12px;
-
-border-radius:7px;
-
-box-shadow:
-0 4px 12px #0003;
-
-white-space:nowrap;
-
-animation:
-winnerButtonIn .2s ease
-}
-
-.winner-action:hover{
-
-background:#15803d;
-
-transform:
-translate(50%,-50%) scale(1.04)
-}
-
-@keyframes winnerButtonIn{
-
-from{
-opacity:0;
-
-transform:
-translate(50%,-50%) scale(.7)
-}
-
-to{
-opacity:1;
-
-transform:
-translate(50%,-50%) scale(1)
-}
-
-}
 
 .final-stage{
 
-justify-content:center
+justify-content:center;
+
 }
 
 .final-stage .stage-list{
 
-justify-content:center
+justify-content:center;
+
 }
 
 .final-match{
 
-border:2px solid #facc15;
+border:
+2px solid #facc15;
 
 box-shadow:
 0 0 12px #facc1555,
 0 3px 12px #0002;
 
-background:#fffbeb
-}
+background:#fffbeb;
 
-.champion-stage{
-
-justify-content:center
-}
-
-.champion-stage .stage-list{
-
-justify-content:center
 }
 
 .champion-box{
@@ -999,7 +896,8 @@ linear-gradient(
 #fef3c7
 );
 
-border:2px solid #facc15;
+border:
+2px solid #facc15;
 
 border-radius:12px;
 
@@ -1012,93 +910,21 @@ font-weight:bold;
 color:#92400e;
 
 box-shadow:
-0 0 15px #facc1555
+0 0 15px #facc1555;
+
+margin-top:10px;
+
 }
 
 
 /* =========================================
-   المباريات
+   نتائج الجولة
 ========================================= */
-
-.matches{
-
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:15px
-}
-
-.match{
-
-background:#f8fafc;
-
-border:1px solid #cbd5e1;
-
-border-radius:12px;
-
-padding:15px
-}
-
-.match-title{
-
-text-align:center;
-
-font-weight:bold;
-
-margin-bottom:12px
-}
-
-.player{
-
-background:#fff;
-
-border:1px solid #cbd5e1;
-
-padding:12px;
-
-border-radius:8px;
-
-margin:6px 0
-}
-
-.winner{
-
-border:3px solid #16a34a;
-
-background:#dcfce7;
-
-box-shadow:0 0 12px #16a34a55
-}
-
-.loser{
-
-border:3px solid #dc2626;
-
-background:#fee2e2;
-
-color:#991b1b
-}
-
-.qualified{
-
-text-align:center;
-
-padding:8px;
-
-border-radius:7px;
-
-background:#dcfce7;
-
-color:#166534;
-
-font-weight:bold
-}
 
 .summary{
 
-overflow:auto
+overflow:auto;
+
 }
 
 .summary-row{
@@ -1106,16 +932,31 @@ overflow:auto
 display:grid;
 
 grid-template-columns:
-45px 1fr 100px 1fr 160px;
+45px 1fr 80px 1fr 160px;
 
 gap:8px;
 
 padding:9px;
 
-border-bottom:1px solid #e2e8f0;
+border-bottom:
+1px solid #e2e8f0;
 
-align-items:center
+align-items:center;
+
 }
+
+.summary-header{
+
+font-weight:bold;
+
+background:#f1f5f9;
+
+}
+
+
+/* =========================================
+   البطل
+========================================= */
 
 .champion{
 
@@ -1125,7 +966,8 @@ font-size:30px;
 
 font-weight:bold;
 
-padding:35px
+padding:35px;
+
 }
 
 .champion-name{
@@ -1134,12 +976,13 @@ font-size:38px;
 
 color:#b45309;
 
-margin:15px 0
+margin:15px 0;
+
 }
 
 
 /* =========================================
-   شاشة التتويج
+   شاشة الاحتفال
 ========================================= */
 
 #celebrationOverlay{
@@ -1171,14 +1014,17 @@ opacity:0;
 
 visibility:hidden;
 
-transition:opacity .6s ease
+transition:
+opacity .6s ease;
+
 }
 
 #celebrationOverlay.show{
 
 opacity:1;
 
-visibility:visible
+visibility:visible;
+
 }
 
 .celebration-box{
@@ -1202,7 +1048,8 @@ align-items:center;
 justify-content:center;
 
 animation:
-championZoom 1.1s ease forwards
+championZoom 1.1s ease forwards;
+
 }
 
 .trophy{
@@ -1216,7 +1063,8 @@ drop-shadow(0 0 35px #f59e0b);
 animation:
 trophyFloat 2s ease-in-out infinite;
 
-margin-bottom:5px
+margin-bottom:5px;
+
 }
 
 .celebration-title,
@@ -1233,7 +1081,8 @@ rgba(120,83,7,.32),
 rgba(15,23,42,.72)
 );
 
-border:1px solid rgba(250,204,21,.32);
+border:
+1px solid rgba(250,204,21,.32);
 
 box-shadow:
 0 4px 18px rgba(0,0,0,.25),
@@ -1243,7 +1092,8 @@ backdrop-filter:blur(4px);
 
 -webkit-backdrop-filter:blur(4px);
 
-overflow:hidden
+overflow:hidden;
+
 }
 
 .celebration-title{
@@ -1256,7 +1106,8 @@ margin-top:10px;
 
 margin-bottom:8px;
 
-padding:8px 22px;
+padding:
+8px 22px;
 
 border-radius:12px;
 
@@ -1264,7 +1115,8 @@ color:#fff;
 
 text-shadow:
 0 2px 6px #000,
-0 0 8px rgba(255,255,255,.35)
+0 0 8px rgba(255,255,255,.35);
+
 }
 
 .celebration-move{
@@ -1275,19 +1127,18 @@ font-weight:800;
 
 color:#fff8dc;
 
-padding:9px 22px;
+padding:
+9px 22px;
 
 border-radius:11px;
 
-margin:3px auto 5px;
+margin:
+3px auto 5px;
 
 text-shadow:
 0 2px 6px #000,
 0 0 8px #facc15;
 
-box-shadow:
-0 4px 18px rgba(0,0,0,.28),
-inset 0 0 14px rgba(250,204,21,.12)
 }
 
 .celebration-name{
@@ -1304,22 +1155,18 @@ text-shadow:
 0 0 45px #f59e0b,
 0 4px 8px #000;
 
-margin:10px 0;
+margin:
+10px 0;
 
-padding:8px 28px;
+padding:
+8px 28px;
 
 border-radius:14px;
 
 text-align:center;
 
-width:auto;
-
 max-width:95%;
 
-box-shadow:
-0 5px 22px rgba(0,0,0,.3),
-0 0 16px rgba(250,204,21,.22),
-inset 0 0 18px rgba(250,204,21,.10)
 }
 
 .celebration-subtitle{
@@ -1332,9 +1179,11 @@ width:max-content;
 
 max-width:90%;
 
-margin:5px auto 0;
+margin:
+5px auto 0;
 
-padding:13px 28px;
+padding:
+13px 28px;
 
 font-size:21px;
 
@@ -1352,7 +1201,8 @@ rgba(245,158,11,.22),
 rgba(120,83,7,.72)
 );
 
-border:2px solid #facc15;
+border:
+2px solid #facc15;
 
 border-radius:14px;
 
@@ -1367,147 +1217,14 @@ text-shadow:
 0 2px 5px #000,
 0 0 8px #facc15;
 
-overflow:hidden;
-
-animation:
-subtitleGlow 2.5s ease-in-out infinite
-}
-
-.celebration-subtitle::before{
-
-content:"";
-
-position:absolute;
-
-inset:-3px;
-
-border-radius:16px;
-
-background:
-linear-gradient(
-90deg,
-transparent 0%,
-transparent 30%,
-#fff8b0 45%,
-#ffffff 50%,
-#fff8b0 55%,
-transparent 70%,
-transparent 100%
-);
-
-background-size:250% 100%;
-
-animation:
-borderLightMove 2.2s linear infinite;
-
-z-index:-1;
-
-filter:blur(3px);
-
-opacity:.95
-}
-
-.celebration-subtitle::after{
-
-content:"";
-
-position:absolute;
-
-inset:2px;
-
-border-radius:11px;
-
-background:
-linear-gradient(
-135deg,
-rgba(30,41,59,.95),
-rgba(120,83,7,.65),
-rgba(30,41,59,.95)
-);
-
-z-index:-1
-}
-
-.celebration-title::after,
-.celebration-move::after,
-.celebration-name::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-90deg,
-transparent 0%,
-transparent 35%,
-rgba(255,255,255,.22) 48%,
-rgba(255,255,255,.42) 50%,
-rgba(255,255,255,.22) 52%,
-transparent 65%,
-transparent 100%
-);
-
-background-size:220% 100%;
-
-animation:
-softTextLight 3.8s linear infinite;
-
-pointer-events:none
-}
-
-@keyframes softTextLight{
-
-0%{
-background-position:200% 0
-}
-
-100%{
-background-position:-200% 0
-}
-
-}
-
-@keyframes subtitleGlow{
-
-0%,100%{
-
-box-shadow:
-0 0 8px #facc15,
-0 0 18px #f59e0b88,
-inset 0 0 15px #facc1533
-}
-
-50%{
-
-box-shadow:
-0 0 14px #fde047,
-0 0 32px #f59e0bcc,
-0 0 55px #facc1566,
-inset 0 0 22px #facc1555
-}
-
-}
-
-@keyframes borderLightMove{
-
-0%{
-background-position:200% 0
-}
-
-100%{
-background-position:-200% 0
-}
-
 }
 
 .close-celebration{
 
 display:block;
 
-margin:24px auto 0;
+margin:
+24px auto 0;
 
 background:
 linear-gradient(
@@ -1518,7 +1235,8 @@ linear-gradient(
 
 color:#111827;
 
-padding:13px 35px;
+padding:
+13px 35px;
 
 font-size:17px;
 
@@ -1530,21 +1248,6 @@ box-shadow:
 0 0 10px #facc15,
 0 0 25px #f59e0b88;
 
-transition:
-transform .2s ease,
-box-shadow .2s ease;
-
-text-align:center
-}
-
-.close-celebration:hover{
-
-transform:
-translateY(-3px) scale(1.04);
-
-box-shadow:
-0 0 15px #fde047,
-0 0 35px #f59e0bcc
 }
 
 .confetti{
@@ -1560,27 +1263,34 @@ height:18px;
 opacity:.9;
 
 animation:
-fall linear forwards
+fall linear forwards;
+
 }
 
 @keyframes championZoom{
 
 0%{
+
 transform:scale(.3);
 
-opacity:0
+opacity:0;
+
 }
 
 60%{
+
 transform:scale(1.12);
 
-opacity:1
+opacity:1;
+
 }
 
 100%{
+
 transform:scale(1);
 
-opacity:1
+opacity:1;
+
 }
 
 }
@@ -1588,15 +1298,19 @@ opacity:1
 @keyframes trophyFloat{
 
 0%,100%{
+
 transform:
 translateY(0)
-rotate(-2deg)
+rotate(-2deg);
+
 }
 
 50%{
+
 transform:
 translateY(-15px)
-rotate(2deg)
+rotate(2deg);
+
 }
 
 }
@@ -1604,15 +1318,19 @@ rotate(2deg)
 @keyframes fall{
 
 0%{
+
 transform:
 translateY(-30px)
-rotate(0deg)
+rotate(0deg);
+
 }
 
 100%{
+
 transform:
 translateY(110vh)
-rotate(720deg)
+rotate(720deg);
+
 }
 
 }
@@ -1625,69 +1343,66 @@ rotate(720deg)
 @media(max-width:900px){
 
 .stats{
-grid-template-columns:repeat(2,1fr)
-}
 
-.players-grid{
-grid-template-columns:repeat(2,1fr)
-}
+grid-template-columns:
+repeat(2,1fr);
 
-.matches{
-grid-template-columns:1fr
 }
 
 .header-inner{
-align-items:flex-start
+
+align-items:flex-start;
+
 }
 
 .brand h1{
-font-size:22px
-}
 
-.tournament-header-title{
-font-size:20px
-}
+font-size:22px;
 
-.promo-bubble{
-width:285px;
-
-font-size:16px
-}
-
-.celebration-name{
-font-size:38px
-}
-
-.celebration-move{
-font-size:18px;
-
-padding:8px 17px
-}
-
-.celebration-subtitle{
-font-size:18px;
-
-padding:11px 20px
 }
 
 .bracket{
+
 min-width:1450px;
 
-gap:12px
+gap:12px;
+
 }
 
 .stage{
-min-width:140px
+
+min-width:140px;
+
 }
 
 .stage h3{
-font-size:13px
+
+font-size:13px;
+
 }
 
 .bplayer{
+
 font-size:12px;
 
-padding:6px 7px
+}
+
+.celebration-name{
+
+font-size:38px;
+
+}
+
+.celebration-move{
+
+font-size:18px;
+
+}
+
+.celebration-subtitle{
+
+font-size:18px;
+
 }
 
 }
@@ -1695,95 +1410,106 @@ padding:6px 7px
 
 @media(max-width:600px){
 
-.players-grid{
-grid-template-columns:1fr
-}
-
 .stats{
-grid-template-columns:1fr 1fr
+
+grid-template-columns:
+1fr 1fr;
+
 }
 
 .container{
-padding:0 10px
+
+padding:
+0 10px;
+
 }
 
 .header-inner{
+
 flex-direction:column;
 
 align-items:center;
 
-text-align:center
+text-align:center;
+
 }
 
 .brand{
-justify-content:center
+
+justify-content:center;
+
 }
 
-.tournament-header-title{
-font-size:19px
+.home-card{
+
+padding:
+40px 20px;
+
 }
 
-.promo-bubble{
+.home-icon{
 
-width:275px;
+font-size:70px;
 
-font-size:15px;
-
-padding:11px 13px
 }
 
-.home-box{
+.home-card h2{
 
-padding:40px 20px
-}
+font-size:26px;
 
-.home-box h2{
-
-font-size:25px
 }
 
 .celebration-name{
+
 font-size:30px;
 
-padding:7px 18px
+padding:
+7px 18px;
+
 }
 
 .trophy{
-font-size:80px
+
+font-size:80px;
+
 }
 
 .celebration-title{
+
 font-size:21px;
 
-padding:7px 17px
 }
 
 .celebration-move{
+
 font-size:16px;
 
-padding:7px 14px
 }
 
 .celebration-subtitle{
+
 font-size:16px;
 
-padding:10px 16px;
+padding:
+10px 16px;
 
-max-width:92%
 }
 
 .close-celebration{
+
 font-size:16px;
 
-padding:12px 30px;
+padding:
+12px 30px;
 
-margin-top:22px
 }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -1817,45 +1543,8 @@ Chess Tournament Manager
 </div>
 
 
-<div
-class="tournament-header-title"
-onclick="toggleTournamentBubble(event)"
->
-
-🏆 بطولة المتابعين
-
-<div
-id="tournamentBubble"
-class="promo-bubble"
->
-
-<span class="promo-line">
-
-لو عامل إشتراك
-دي
-بريليانت موووف
-<span class="brilliant-symbol">‼</span>
-
-</span>
-
-<span class="promo-line">
-
-لو مش عامل إشتراك
-دا
-بلندر أسطوري خيااالي
-<span class="blunder-symbol">⁉</span>
-
-</span>
-
-</div>
-
-</div>
-
-
 <div>
-
 🏆 <b>32 Players Knockout</b>
-
 </div>
 
 </div>
@@ -1872,10 +1561,9 @@ class="promo-bubble"
 
 <div
 id="homeScreen"
-class="home-screen"
 >
 
-<div class="home-box">
+<div class="home-card">
 
 <div class="home-icon">
 ♟️
@@ -1886,11 +1574,11 @@ class="home-screen"
 </h2>
 
 <p>
-نظام خروج المغلوب — 32 لاعب
+نظام إدارة بطولة شطرنج بنظام خروج المغلوب
 </p>
 
 <button
-class="enter-tournament"
+class="enter-button"
 onclick="enterTournament()"
 >
 🎯 الدخول للبطولة
@@ -1902,47 +1590,16 @@ onclick="enterTournament()"
 
 
 <!-- =========================================
-     شاشة إدخال اللاعبين
-========================================= -->
-
-<div
-id="playersScreen"
-class="card hidden"
->
-
-<div class="toolbar">
-
-<div>
-
-<h2>
-👥 أسماء لاعبي دور الـ32
-</h2>
-
-<p>
-أدخل أسماء الـ32 لاعبًا ثم اضغط حفظ.
-</p>
-
-</div>
-
-</div>
-
-
-<div
-id="playersContainer"
-class="players-grid"
-></div>
-
-</div>
-
-
-<!-- =========================================
-     شاشة البطولة
+     Dashboard
 ========================================= -->
 
 <div
 id="tournamentScreen"
 class="hidden"
 >
+
+
+<!-- الإحصائيات -->
 
 <div class="stats">
 
@@ -2010,6 +1667,8 @@ class="hidden"
 </div>
 
 
+<!-- عنوان الجولة -->
+
 <div class="card">
 
 <div class="toolbar">
@@ -2024,7 +1683,7 @@ class="hidden"
 id="status"
 class="status"
 >
-لم يتم حسم أي مباراة.
+أدخل أسماء اللاعبين في شجرة البطولة ثم اضغط حفظ.
 </div>
 
 </div>
@@ -2042,19 +1701,23 @@ onclick="newTournament()"
 </div>
 
 
+<!-- =========================================
+     شجرة البطولة
+========================================= -->
+
 <div class="card">
 
 <div class="toolbar">
 
-<h2 style="margin:0">
+<h2>
 🏆 شجرة البطولة
 </h2>
 
 
 <button
-id="saveNamesButton"
+id="saveButton"
 class="save-button"
-onclick="saveNames()"
+onclick="savePlayers()"
 >
 💾 حفظ
 </button>
@@ -2063,10 +1726,14 @@ onclick="saveNames()"
 
 
 <div
-id="bracketHint"
-class="status"
+id="saveHint"
+style="
+margin-top:8px;
+color:#64748b;
+font-size:13px;
+"
 >
-اضغط على اسم اللاعب داخل شجرة البطولة لإظهار زر «الفائز».
+اكتب أسماء اللاعبين في أماكنهم في دور الـ32 ثم اضغط حفظ.
 </div>
 
 
@@ -2082,19 +1749,9 @@ class="bracket"
 </div>
 
 
-<div class="card">
-
-<h2>
-⚔️ مباريات الجولة الحالية
-</h2>
-
-<div
-id="matchesContainer"
-class="matches"
-></div>
-
-</div>
-
+<!-- =========================================
+     نتائج الجولة
+========================================= -->
 
 <div class="card">
 
@@ -2108,6 +1765,7 @@ class="summary"
 ></div>
 
 </div>
+
 
 </div>
 
@@ -2160,26 +1818,32 @@ id="celebrationOverlay"
 
 <div class="celebration-box">
 
+
 <div class="trophy">
 🏆
 </div>
+
 
 <div class="celebration-title">
 🎉 مبرووووك! 🎉
 </div>
 
+
 <div class="celebration-move">
 أونلي مووف و بريليانت موووف
 </div>
+
 
 <div
 class="celebration-name"
 id="celebrationName"
 ></div>
 
+
 <div class="celebration-subtitle">
 رسمياً هو بطل بطولة المتابعين
 </div>
+
 
 <button
 class="close-celebration"
@@ -2188,6 +1852,7 @@ onclick="closeCelebration()"
 متابعة
 </button>
 
+
 </div>
 
 </div>
@@ -2195,226 +1860,36 @@ onclick="closeCelebration()"
 
 <script>
 
+
+/* =========================================
+   بيانات البطولة
+========================================= */
+
 let players=[];
 
 let rounds=[];
 
 let currentRound=0;
 
-let namesSaved=false;
-
-let selectedPlayer=null;
+let tournamentSaved=false;
 
 
 /* =========================================
-   فقاعة البطولة
+   إنشاء لاعب
 ========================================= */
 
-let bubbleTimer=null;
+function makePlayer(name,seed){
 
+return{
 
-function toggleTournamentBubble(event){
+id:
+"player_"+seed,
 
-event.stopPropagation();
-
-const bubble=
-document.getElementById(
-"tournamentBubble"
-);
-
-if(
-bubble.classList.contains("show")
-){
-
-hideTournamentBubble();
-
-return;
-
-}
-
-bubble.classList.add("show");
-
-clearTimeout(bubbleTimer);
-
-bubbleTimer=
-setTimeout(
-function(){
-
-hideTournamentBubble();
-
-},
-5000
-);
-
-}
-
-
-function hideTournamentBubble(){
-
-const bubble=
-document.getElementById(
-"tournamentBubble"
-);
-
-bubble.classList.remove("show");
-
-clearTimeout(bubbleTimer);
-
-}
-
-
-document.addEventListener(
-"click",
-function(){
-
-hideTournamentBubble();
-
-});
-
-
-/* =========================================
-   الدخول للبطولة
-========================================= */
-
-function enterTournament(){
-
-document
-.getElementById("homeScreen")
-.classList.add("hidden");
-
-
-if(
-namesSaved &&
-players.length===32 &&
-rounds.length
-){
-
-showTournament();
-
-renderRound();
-
-return;
-
-}
-
-
-document
-.getElementById("playersScreen")
-.classList
-.remove("hidden");
-
-
-createPlayerInputs();
-
-}
-
-
-/* =========================================
-   إنشاء خانات الأسماء
-========================================= */
-
-function createPlayerInputs(){
-
-const c=
-document.getElementById(
-"playersContainer"
-);
-
-c.innerHTML="";
-
-
-for(
-let i=1;
-i<=32;
-i++
-){
-
-const row=
-document.createElement("div");
-
-row.className=
-"player-row";
-
-
-row.innerHTML=`
-
-<strong>
-${i}
-</strong>
-
-<input
-id="name-${i}"
-placeholder="اسم اللاعب ${i}"
-autocomplete="off"
->
-
-`;
-
-c.appendChild(row);
-
-}
-
-}
-
-
-/* =========================================
-   قراءة أسماء اللاعبين
-========================================= */
-
-function readPlayerNames(){
-
-const list=[];
-
-
-for(
-let i=1;
-i<=32;
-i++
-){
-
-const input=
-document.getElementById(
-"name-"+i
-);
-
-
-const name=
-input
-?
-input.value.trim()
-:
-"";
-
-
-if(!name){
-
-alert(
-"من فضلك أدخل اسم اللاعب رقم "+i
-);
-
-if(input){
-
-input.focus();
-
-}
-
-return null;
-
-}
-
-
-list.push({
-
-seed:i,
+seed:seed,
 
 name:name
 
-});
-
-}
-
-
-return list;
+};
 
 }
 
@@ -2423,7 +1898,7 @@ return list;
    إنشاء دور الـ32
 ========================================= */
 
-function createRound32(list){
+function createRound32(){
 
 const pairs=[
 
@@ -2431,6 +1906,7 @@ const pairs=[
 [16,17],
 [8,25],
 [9,24],
+
 [4,29],
 [13,20],
 [5,28],
@@ -2440,6 +1916,7 @@ const pairs=[
 [15,18],
 [7,26],
 [10,23],
+
 [3,30],
 [14,19],
 [6,27],
@@ -2449,17 +1926,19 @@ const pairs=[
 
 
 return pairs.map(
-(p,i)=>({
+(pair,index)=>({
 
-number:i+1,
+number:index+1,
 
-player1:list[p[0]-1],
+player1:null,
 
-player2:list[p[1]-1],
+player2:null,
 
 winner:null,
 
-result:null
+loser:null,
+
+selected:null
 
 })
 );
@@ -2468,77 +1947,10 @@ result:null
 
 
 /* =========================================
-   إنشاء الجولات
-========================================= */
-
-function createTournamentRounds(list){
-
-const round32=
-createRound32(list);
-
-
-const round16=
-createEmptyRound(
-8,
-"دور الـ16"
-);
-
-const quarter=
-createEmptyRound(
-4,
-"ربع النهائي"
-);
-
-const semi=
-createEmptyRound(
-2,
-"نصف النهائي"
-);
-
-const final=
-createEmptyRound(
-1,
-"النهائي"
-);
-
-
-return [
-
-{
-name:"دور الـ32",
-matches:round32
-},
-
-{
-name:"دور الـ16",
-matches:round16
-},
-
-{
-name:"ربع النهائي",
-matches:quarter
-},
-
-{
-name:"نصف النهائي",
-matches:semi
-},
-
-{
-name:"النهائي",
-matches:final
-}
-
-];
-
-}
-
-
-/* =========================================
    إنشاء جولة فارغة
 ========================================= */
 
-function createEmptyRound(count,name){
+function createEmptyRound(count){
 
 const matches=[];
 
@@ -2559,7 +1971,9 @@ player2:null,
 
 winner:null,
 
-result:null
+loser:null,
+
+selected:null
 
 });
 
@@ -2572,63 +1986,71 @@ return matches;
 
 
 /* =========================================
-   حفظ الأسماء
+   إنشاء كل الجولات
 ========================================= */
 
-function saveNames(){
+function createTournamentRounds(){
 
-if(namesSaved){
+return[
 
-return;
+{
+
+name:"دور الـ32",
+
+matches:
+createRound32()
+
+},
+
+{
+
+name:"دور الـ16",
+
+matches:
+createEmptyRound(8)
+
+},
+
+{
+
+name:"ربع النهائي",
+
+matches:
+createEmptyRound(4)
+
+},
+
+{
+
+name:"نصف النهائي",
+
+matches:
+createEmptyRound(2)
+
+},
+
+{
+
+name:"النهائي",
+
+matches:
+createEmptyRound(1)
 
 }
 
-
-const list=
-readPlayerNames();
-
-
-if(!list){
-
-return;
-
-}
-
-
-players=list;
-
-rounds=
-createTournamentRounds(
-players
-);
-
-currentRound=0;
-
-namesSaved=true;
-
-saveTournament();
-
-showTournament();
-
-renderRound();
+];
 
 }
 
 
 /* =========================================
-   إظهار البطولة
+   الدخول للبطولة
 ========================================= */
 
-function showTournament(){
+function enterTournament(){
 
 document
 .getElementById("homeScreen")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("playersScreen")
 .classList
 .add("hidden");
 
@@ -2644,20 +2066,41 @@ document
 .classList
 .remove("hidden");
 
+
+/*
+   لو لا توجد بطولة محفوظة
+   ننشئ لوحة جديدة.
+*/
+
+if(!rounds.length){
+
+rounds=
+createTournamentRounds();
+
+currentRound=0;
+
+tournamentSaved=false;
+
+}
+
+
+/*
+   لو كانت بطولة موجودة
+   نحافظ عليها.
+*/
+
+renderRound();
+
 }
 
 
 /* =========================================
-   عرض الجولة
+   رسم الجولة الحالية
 ========================================= */
 
 function renderRound(){
 
-const round=
-rounds[currentRound];
-
-
-if(!round){
+if(!rounds[currentRound]){
 
 return;
 
@@ -2667,49 +2110,50 @@ return;
 document
 .getElementById("roundTitle")
 .textContent=
-round.name;
+rounds[currentRound].name;
 
-
-renderMatches();
-
-renderSummary();
 
 renderBracket();
 
+renderSummary();
+
 updateStats();
 
-updateSaveButton();
+
+/*
+   زر الحفظ يظهر فقط
+   أثناء تجهيز دور الـ32.
+*/
+
+const saveButton=
+document.getElementById("saveButton");
+
+
+const saveHint=
+document.getElementById("saveHint");
+
+
+if(
+currentRound===0 &&
+!tournamentSaved
+){
+
+saveButton.classList.remove("hidden");
+
+saveHint.classList.remove("hidden");
+
+document
+.getElementById("status")
+.textContent=
+"أدخل أسماء اللاعبين في شجرة البطولة ثم اضغط حفظ.";
 
 }
 
-
-/* =========================================
-   زر الحفظ
-========================================= */
-
-function updateSaveButton(){
-
-const button=
-document.getElementById(
-"saveNamesButton"
-);
-
-
-if(!button){
-
-return;
-
-}
-
-
-if(namesSaved){
-
-button.classList.add("hidden");
-
-}
 else{
 
-button.classList.remove("hidden");
+saveButton.classList.add("hidden");
+
+saveHint.classList.add("hidden");
 
 }
 
@@ -2717,518 +2161,15 @@ button.classList.remove("hidden");
 
 
 /* =========================================
-   عرض المباريات الحالية
-========================================= */
-
-function renderMatches(){
-
-const round=
-rounds[currentRound];
-
-
-const c=
-document.getElementById(
-"matchesContainer"
-);
-
-c.innerHTML="";
-
-
-round.matches.forEach(
-(m,i)=>{
-
-if(
-!m.player1 ||
-!m.player2
-){
-
-return;
-
-}
-
-
-const box=
-document.createElement("div");
-
-box.className=
-"match";
-
-
-let p1="player";
-
-let p2="player";
-
-
-if(
-m.winner===m.player1
-){
-
-p1+=" winner";
-
-p2+=" loser";
-
-}
-
-
-if(
-m.winner===m.player2
-){
-
-p2+=" winner";
-
-p1+=" loser";
-
-}
-
-
-box.innerHTML=`
-
-<div class="match-title">
-المباراة ${i+1}
-</div>
-
-
-<div class="${p1}">
-
-<b>
-${m.player1.name}
-</b>
-
-</div>
-
-
-<div style="text-align:center">
-⚔️ VS ⚔️
-</div>
-
-
-<div class="${p2}">
-
-<b>
-${m.player2.name}
-</b>
-
-</div>
-
-
-${
-m.winner
-?
-`
-<div class="qualified">
-✅ المتأهل:
-${m.winner.name}
-</div>
-`
-:
-`
-<div
-style="
-text-align:center;
-margin-top:10px;
-color:#64748b;
-font-size:13px;
-"
->
-يمكن اختيار الفائز من شجرة البطولة.
-</div>
-`
-}
-
-`;
-
-
-c.appendChild(box);
-
-}
-
-);
-
-}
-
-
-/* =========================================
-   نقل الفائز
-========================================= */
-
-function moveWinnerToNextRound(
-index,
-winner
-){
-
-if(
-currentRound>=4
-){
-
-return;
-
-}
-
-
-const next=
-rounds[currentRound+1];
-
-
-if(!next){
-
-return;
-
-}
-
-
-const nextIndex=
-Math.floor(index/2);
-
-
-const position=
-index%2;
-
-
-if(
-!next.matches[nextIndex]
-){
-
-return;
-
-}
-
-
-if(position===0){
-
-next.matches[nextIndex].player1=
-winner;
-
-}
-else{
-
-next.matches[nextIndex].player2=
-winner;
-
-}
-
-
-next.matches[nextIndex].winner=null;
-
-next.matches[nextIndex].result=null;
-
-}
-
-
-/* =========================================
-   اختيار الفائز من الشجرة
-========================================= */
-
-function chooseWinner(
-roundIndex,
-matchIndex,
-playerPosition
-){
-
-if(
-!namesSaved
-){
-
-return;
-
-}
-
-
-const round=
-rounds[roundIndex];
-
-
-if(!round){
-
-return;
-
-}
-
-
-const match=
-round.matches[matchIndex];
-
-
-if(
-!match ||
-!match.player1 ||
-!match.player2
-){
-
-return;
-
-}
-
-
-if(match.winner){
-
-return;
-
-}
-
-
-const winner=
-playerPosition===1
-?
-match.player1
-:
-match.player2;
-
-
-match.winner=
-winner;
-
-
-match.result=
-winner===match.player1
-?
-"1 - 0"
-:
-"0 - 1";
-
-
-moveWinnerToNextRoundForRound(
-roundIndex,
-matchIndex,
-winner
-);
-
-
-saveTournament();
-
-
-selectedPlayer=null;
-
-
-renderRound();
-
-
-checkRoundFinishedForRound(
-roundIndex
-);
-
-}
-
-
-/* =========================================
-   نقل الفائز للجولة التالية حسب الجولة
-========================================= */
-
-function moveWinnerToNextRoundForRound(
-roundIndex,
-matchIndex,
-winner
-){
-
-if(
-roundIndex>=4
-){
-
-return;
-
-}
-
-
-const next=
-rounds[roundIndex+1];
-
-
-if(!next){
-
-return;
-
-}
-
-
-const nextIndex=
-Math.floor(matchIndex/2);
-
-
-const position=
-matchIndex%2;
-
-
-if(
-!next.matches[nextIndex]
-){
-
-return;
-
-}
-
-
-if(position===0){
-
-next.matches[nextIndex].player1=
-winner;
-
-}
-else{
-
-next.matches[nextIndex].player2=
-winner;
-
-}
-
-
-next.matches[nextIndex].winner=null;
-
-next.matches[nextIndex].result=null;
-
-}
-
-
-/* =========================================
-   التحقق من انتهاء الجولة
-========================================= */
-
-function checkRoundFinishedForRound(
-roundIndex
-){
-
-const round=
-rounds[roundIndex];
-
-
-if(!round){
-
-return;
-
-}
-
-
-if(
-round.matches.every(
-m=>m.winner!==null
-)
-){
-
-if(
-roundIndex===4
-){
-
-setTimeout(
-function(){
-
-showChampion(
-round.matches[0].winner
-);
-
-},
-500
-);
-
-return;
-
-}
-
-
-setTimeout(
-function(){
-
-if(
-currentRound===roundIndex
-){
-
-currentRound=
-roundIndex+1;
-
-saveTournament();
-
-renderRound();
-
-}
-
-},
-600
-);
-
-}
-
-}
-
-
-/* =========================================
-   عرض الملخص
-========================================= */
-
-function renderSummary(){
-
-const r=
-rounds[currentRound];
-
-
-const c=
-document.getElementById(
-"summaryContainer"
-);
-
-c.innerHTML="";
-
-
-r.matches.forEach(
-(m,i)=>{
-
-const row=
-document.createElement("div");
-
-row.className=
-"summary-row";
-
-
-row.innerHTML=`
-
-<div>
-${i+1}
-</div>
-
-<div>
-${m.player1 ? m.player1.name : "—"}
-</div>
-
-<div>
-<b>
-${m.result||"—"}
-</b>
-</div>
-
-<div>
-${m.player2 ? m.player2.name : "—"}
-</div>
-
-<div>
-${
-m.winner
-?
-"✅ "+m.winner.name
-:
-"لم تحسم بعد"
-}
-</div>
-
-`;
-
-
-c.appendChild(row);
-
-}
-
-);
-
-}
-
-
-/* =========================================
-   شجرة البطولة
+   رسم شجرة البطولة
 ========================================= */
 
 function renderBracket(){
 
-const b=
-document.getElementById(
-"bracket"
-);
+const bracket=
+document.getElementById("bracket");
 
-b.innerHTML="";
+bracket.innerHTML="";
 
 
 const stages=[
@@ -3275,15 +2216,19 @@ stage.className="stage";
 
 if(s===4){
 
-stage.classList.add(
-"final-stage"
-);
+stage.classList.add("final-stage");
 
 }
 
 
-stage.innerHTML=
-`<h3>${stages[s]}</h3>`;
+const title=
+document.createElement("h3");
+
+title.textContent=
+stages[s];
+
+
+stage.appendChild(title);
 
 
 const list=
@@ -3293,19 +2238,14 @@ list.className=
 "stage-list";
 
 
-/* =========================================
+/*
    النهائي
-========================================= */
+*/
 
 if(s===4){
 
 const match=
-rounds[4] &&
-rounds[4].matches[0]
-?
-rounds[4].matches[0]
-:
-null;
+rounds[4].matches[0];
 
 
 const finalBox=
@@ -3315,68 +2255,42 @@ finalBox.className=
 "bracket-match final-match";
 
 
-if(match){
-
+finalBox.appendChild(
 createBracketPlayer(
-finalBox,
-match.player1,
-match.winner,
+match,
+"player1",
 4,
-0,
-1
+0
+)
 );
-
-
-createBracketPlayer(
-finalBox,
-match.player2,
-match.winner,
-4,
-0,
-2
-);
-
-}
-else{
-
-finalBox.innerHTML=`
-
-<div class="bplayer empty">
-— في انتظار المتأهل —
-</div>
-
-<div class="bplayer empty">
-— في انتظار المتأهل —
-</div>
-
-`;
-
-}
-
-
-if(
-match &&
-match.winner &&
-currentRound===4
-){
-
-const winnerElement=
-document.createElement("div");
-
-winnerElement.className=
-"champion-box";
-
-winnerElement.innerHTML=
-`
-🏆
-<br>
-${match.winner.name}
-`;
 
 
 finalBox.appendChild(
-winnerElement
+createBracketPlayer(
+match,
+"player2",
+4,
+0
+)
 );
+
+
+if(match.winner){
+
+const champion=
+document.createElement("div");
+
+champion.className=
+"champion-box";
+
+champion.innerHTML=
+`
+🏆
+<br>
+${escapeHtml(match.winner.name)}
+`;
+
+finalBox.appendChild(champion);
 
 }
 
@@ -3385,18 +2299,19 @@ list.appendChild(finalBox);
 
 stage.appendChild(list);
 
-b.appendChild(stage);
+bracket.appendChild(stage);
 
 continue;
 
 }
 
 
-/* =========================================
+/*
    تحديد الجولة
-========================================= */
+*/
 
 let roundIndex;
+
 
 if(s<4){
 
@@ -3405,8 +2320,7 @@ roundIndex=s;
 }
 else{
 
-roundIndex=
-8-s;
+roundIndex=8-s;
 
 }
 
@@ -3415,32 +2329,21 @@ const round=
 rounds[roundIndex];
 
 
-/* =========================================
-   إنشاء مباريات المرحلة
-========================================= */
-
 for(
 let i=0;
 i<counts[s];
 i++
 ){
 
-const bm=
-document.createElement("div");
-
-bm.className=
-"bracket-match";
-
-
 let match=null;
 
 
-if(round){
-
-if(s<4){
+if(
+s<4
+){
 
 match=
-round.matches[i]||null;
+round.matches[i];
 
 }
 else{
@@ -3449,118 +2352,53 @@ const offset=
 round.matches.length/2;
 
 match=
-round.matches[
-offset+i
-]||null;
-
-}
+round.matches[offset+i];
 
 }
 
 
 /*
-   استخراج اللاعبين
+   إنشاء الخانة
 */
 
-let player1=null;
+const box=
+document.createElement("div");
 
-let player2=null;
-
-let winner=null;
+box.className=
+"bracket-match";
 
 
 if(match){
 
-player1=
-match.player1||null;
-
-player2=
-match.player2||null;
-
-winner=
-match.winner||null;
-
-}
-
-
-/*
-   رسم اللاعبين
-*/
-
-if(
-player1
-){
-
+box.appendChild(
 createBracketPlayer(
-bm,
-player1,
-winner,
+match,
+"player1",
 roundIndex,
-match
-?
-match.number-1
-:
-i,
-1
+i
+)
+);
+
+box.appendChild(
+createBracketPlayer(
+match,
+"player2",
+roundIndex,
+i
+)
 );
 
 }
-else{
-
-const empty=
-document.createElement("div");
-
-empty.className=
-"bplayer empty";
-
-empty.textContent="—";
-
-bm.appendChild(empty);
-
-}
 
 
-if(
-player2
-){
-
-createBracketPlayer(
-bm,
-player2,
-winner,
-roundIndex,
-match
-?
-match.number-1
-:
-i,
-2
-);
-
-}
-else{
-
-const empty=
-document.createElement("div");
-
-empty.className=
-"bplayer empty";
-
-empty.textContent="—";
-
-bm.appendChild(empty);
-
-}
-
-
-list.appendChild(bm);
+list.appendChild(box);
 
 }
 
 
 stage.appendChild(list);
 
-b.appendChild(stage);
+bracket.appendChild(stage);
 
 }
 
@@ -3572,222 +2410,687 @@ b.appendChild(stage);
 ========================================= */
 
 function createBracketPlayer(
-box,
-player,
-winner,
+match,
+slot,
 roundIndex,
-matchIndex,
-playerPosition
+matchIndex
 ){
 
-const div=
+const player=
+match[slot];
+
+
+const wrapper=
 document.createElement("div");
-
-
-div.className="bplayer";
-
-
-if(
-winner &&
-winner===player
-){
-
-div.classList.add("win");
-
-}
-
-else if(
-winner &&
-winner!==player
-){
-
-div.classList.add("lose");
-
-}
-
-else{
-
-div.classList.add("pending");
-
-}
-
-
-div.innerHTML=
-`
-<span>
-${escapeHTML(player.name)}
-</span>
-`;
 
 
 /*
-   إذا لم يتم حسم المباراة
-   نسمح بالضغط على اللاعب
+   الجولة الأولى قبل الحفظ:
+   input لكتابة الاسم.
 */
 
 if(
-!winner &&
-roundIndex===currentRound &&
-rounds[roundIndex] &&
-rounds[roundIndex].matches[matchIndex] &&
-rounds[roundIndex].matches[matchIndex].player1 &&
-rounds[roundIndex].matches[matchIndex].player2
+roundIndex===0 &&
+!tournamentSaved
 ){
 
-div.onclick=
-function(event){
+const input=
+document.createElement("input");
 
-event.stopPropagation();
+input.className=
+"player-input";
 
-showWinnerButton(
-div,
-roundIndex,
-matchIndex,
-playerPosition
+input.placeholder=
+"اسم اللاعب";
+
+input.value=
+player
+?
+player.name
+:
+"";
+
+
+input.dataset.match=
+matchIndex;
+
+input.dataset.slot=
+slot;
+
+
+input.addEventListener(
+"input",
+function(){
+
+const value=
+this.value.trim();
+
+
+if(value){
+
+match[slot]=
+makePlayer(
+value,
+matchIndex+"_"+slot
 );
 
-};
+}
+else{
+
+match[slot]=null;
+
+}
+
+}
+);
+
+
+wrapper.className=
+"bplayer";
+
+wrapper.appendChild(input);
+
+return wrapper;
 
 }
 
 
-box.appendChild(div);
+/*
+   لا يوجد لاعب
+*/
+
+if(!player){
+
+wrapper.className=
+"bplayer empty";
+
+wrapper.textContent=
+"— في انتظار المتأهل —";
+
+return wrapper;
 
 }
 
 
-/* =========================================
-   إظهار زر الفائز
-========================================= */
+/*
+   لاعب موجود
+*/
 
-function showWinnerButton(
-playerElement,
-roundIndex,
-matchIndex,
-playerPosition
+wrapper.className=
+"bplayer saved-player";
+
+
+/*
+   تحديد الفائز والخاسر
+*/
+
+if(
+match.winner &&
+match.winner.id===player.id
 ){
 
-document
-.querySelectorAll(".winner-action")
-.forEach(
-el=>el.remove()
+wrapper.classList.add("win");
+
+}
+
+if(
+match.loser &&
+match.loser.id===player.id
+){
+
+wrapper.classList.add("lose");
+
+}
+
+
+/*
+   اسم اللاعب
+*/
+
+const name=
+document.createElement("span");
+
+name.textContent=
+player.name;
+
+
+wrapper.appendChild(name);
+
+
+/*
+   في حالة وجود نتيجة
+   لا نسمح بإعادة الاختيار.
+*/
+
+if(
+!match.winner
+){
+
+wrapper.addEventListener(
+"click",
+function(){
+
+selectPlayerForWinner(
+match,
+slot
 );
 
+}
+);
 
-const button=
+}
+
+
+/*
+   زر الفائز يظهر بعد الضغط
+*/
+
+if(
+match.selected===slot &&
+!match.winner
+){
+
+const winnerButton=
 document.createElement("button");
 
-button.className=
+winnerButton.className=
 "winner-action";
 
-button.textContent=
-"🏆 الفائز";
+winnerButton.textContent=
+"الفائز";
 
 
-button.onclick=
+winnerButton.onclick=
 function(event){
 
 event.stopPropagation();
 
-chooseWinner(
+setWinner(
+match,
+slot,
 roundIndex,
-matchIndex,
-playerPosition
+matchIndex
 );
 
 };
 
 
-playerElement.appendChild(button);
+wrapper.appendChild(
+winnerButton
+);
+
+}
+
+
+return wrapper;
 
 }
 
 
 /* =========================================
-   حماية عرض أسماء اللاعبين
+   اختيار لاعب
 ========================================= */
 
-function escapeHTML(text){
+function selectPlayerForWinner(
+match,
+slot
+){
 
-const div=
-document.createElement("div");
-
-div.textContent=
-text;
-
-return div.innerHTML;
-
-}
-
-
-/* =========================================
-   الإحصائيات
-========================================= */
-
-function updateStats(){
-
-const r=
-rounds[currentRound];
-
-
-if(!r){
+if(
+!tournamentSaved
+){
 
 return;
 
 }
 
 
-const done=
-r.matches
-.filter(
-m=>m.winner
-)
-.length;
+if(
+match.winner
+){
+
+return;
+
+}
 
 
-document
-.getElementById("statRound")
-.textContent=
-r.name;
+if(
+!match[slot]
+){
+
+return;
+
+}
 
 
-document
-.getElementById("statMatches")
-.textContent=
-r.matches.length;
+match.selected=
+slot;
 
 
-document
-.getElementById("statDone")
-.textContent=
-done;
-
-
-const playersInRound=
-r.matches.filter(
-m=>m.player1&&m.player2
-).length*2;
-
-
-document
-.getElementById("statPlayers")
-.textContent=
-playersInRound;
-
-
-document
-.getElementById("status")
-.textContent=
-`تم حسم ${done} من ${r.matches.length} مباريات في ${r.name}.`;
+renderRound();
 
 }
 
 
 /* =========================================
-   الحفظ في المتصفح
+   تسجيل الفائز
 ========================================= */
 
-function saveTournament(){
+function setWinner(
+match,
+slot,
+roundIndex,
+matchIndex
+){
+
+if(
+!match ||
+!match[slot]
+){
+
+return;
+
+}
+
+
+if(
+match.winner
+){
+
+return;
+
+}
+
+
+const winner=
+match[slot];
+
+const loser=
+slot==="player1"
+?
+match.player2
+:
+match.player1;
+
+
+if(!loser){
+
+return;
+
+}
+
+
+match.winner=
+winner;
+
+match.loser=
+loser;
+
+match.selected=null;
+
+
+/*
+   نقل الفائز للجولة التالية
+*/
+
+if(
+roundIndex<4
+){
+
+moveWinnerToNextRound(
+roundIndex,
+matchIndex,
+winner
+);
+
+}
+
+
+/*
+   حفظ
+*/
+
+saveState();
+
+
+/*
+   إعادة الرسم
+*/
+
+renderRound();
+
+
+/*
+   التحقق من انتهاء الجولة
+*/
+
+setTimeout(
+function(){
+
+checkRoundFinished();
+
+},
+500
+);
+
+}
+
+
+/* =========================================
+   نقل الفائز للدور التالي
+========================================= */
+
+function moveWinnerToNextRound(
+roundIndex,
+matchIndex,
+winner
+){
+
+const nextRound=
+rounds[roundIndex+1];
+
+
+if(!nextRound){
+
+return;
+
+}
+
+
+const nextIndex=
+Math.floor(matchIndex/2);
+
+
+const position=
+matchIndex%2;
+
+
+const nextMatch=
+nextRound.matches[nextIndex];
+
+
+if(!nextMatch){
+
+return;
+
+}
+
+
+if(position===0){
+
+nextMatch.player1=
+winner;
+
+}
+else{
+
+nextMatch.player2=
+winner;
+
+}
+
+
+/*
+   التأكد من عدم وجود
+   نتيجة قديمة.
+*/
+
+nextMatch.winner=null;
+
+nextMatch.loser=null;
+
+nextMatch.selected=null;
+
+}
+
+
+/* =========================================
+   التحقق من انتهاء الجولة
+========================================= */
+
+function checkRoundFinished(){
+
+const round=
+rounds[currentRound];
+
+
+if(!round){
+
+return;
+
+}
+
+
+const allFinished=
+round.matches.every(
+match=>
+match.player1 &&
+match.player2 &&
+match.winner
+);
+
+
+if(!allFinished){
+
+return;
+
+}
+
+
+if(
+currentRound===4
+){
+
+showChampion(
+round.matches[0].winner
+);
+
+return;
+
+}
+
+
+setTimeout(
+function(){
+
+currentRound++;
+
+saveState();
+
+renderRound();
+
+},
+700
+);
+
+}
+
+
+/* =========================================
+   حفظ أسماء اللاعبين
+========================================= */
+
+function savePlayers(){
+
+if(
+currentRound!==0 ||
+tournamentSaved
+){
+
+return;
+
+}
+
+
+const round32=
+rounds[0];
+
+
+for(
+let i=0;
+i<round32.matches.length;
+i++
+){
+
+const match=
+round32.matches[i];
+
+
+if(
+!match.player1 ||
+!match.player1.name.trim()
+){
+
+alert(
+"من فضلك أدخل اسم اللاعب في كل الخانات."
+);
+
+return;
+
+}
+
+
+if(
+!match.player2 ||
+!match.player2.name.trim()
+){
+
+alert(
+"من فضلك أدخل اسم اللاعب في كل الخانات."
+);
+
+return;
+
+}
+
+}
+
+
+/*
+   التأكد من وجود 32 اسمًا
+*/
+
+const names=[];
+
+
+round32.matches.forEach(
+match=>{
+
+names.push(
+match.player1.name.trim()
+);
+
+names.push(
+match.player2.name.trim()
+);
+
+});
+
+
+/*
+   منع تكرار الأسماء
+*/
+
+const normalized=
+names.map(
+name=>name.toLowerCase()
+);
+
+
+const unique=
+new Set(normalized);
+
+
+if(
+unique.size!==32
+){
+
+alert(
+"لا يمكن تكرار اسم لاعب. من فضلك تأكد من أسماء اللاعبين الـ32."
+);
+
+return;
+
+}
+
+
+/*
+   تثبيت الأسماء
+*/
+
+round32.matches.forEach(
+match=>{
+
+match.player1.name=
+match.player1.name.trim();
+
+match.player2.name=
+match.player2.name.trim();
+
+});
+
+
+players=
+names.map(
+(name,index)=>
+makePlayer(name,index+1)
+);
+
+
+/*
+   إعادة بناء مراجع اللاعبين
+   بشكل ثابت
+*/
+
+let playerIndex=0;
+
+
+round32.matches.forEach(
+match=>{
+
+match.player1=
+players[playerIndex++];
+
+match.player2=
+players[playerIndex++];
+
+});
+
+
+tournamentSaved=true;
+
+
+/*
+   حفظ البطولة
+*/
+
+saveState();
+
+
+/*
+   إعادة الرسم
+*/
+
+renderRound();
+
+
+document
+.getElementById("status")
+.textContent=
+"✅ تم حفظ أسماء اللاعبين. لا يمكن تعديلهم الآن.";
+
+alert(
+"تم حفظ أسماء اللاعبين الـ32 بنجاح."
+);
+
+}
+
+
+/* =========================================
+   حفظ الحالة
+========================================= */
+
+function saveState(){
 
 try{
 
@@ -3795,17 +3098,25 @@ localStorage.setItem(
 "chessTournament",
 JSON.stringify({
 
+players:
 players,
+
+rounds:
 rounds,
+
+currentRound:
 currentRound,
-namesSaved
+
+tournamentSaved:
+tournamentSaved
 
 })
 );
 
-}catch(e){
+}
+catch(error){
 
-console.error(e);
+console.error(error);
 
 }
 
@@ -3833,48 +3144,134 @@ return;
 
 try{
 
-const d=
+const data=
 JSON.parse(saved);
 
 
 players=
-d.players||[];
-
+data.players || [];
 
 rounds=
-d.rounds||[];
-
+data.rounds || [];
 
 currentRound=
-Number(d.currentRound)||0;
+Number(
+data.currentRound || 0
+);
+
+tournamentSaved=
+Boolean(
+data.tournamentSaved
+);
 
 
-namesSaved=
-Boolean(d.namesSaved);
-
+/*
+   لو البيانات سليمة
+   لا نظهرها تلقائيًا.
+   الصفحة الرئيسية تظل هي البداية.
+*/
 
 if(
-players.length===32 &&
-rounds.length===5 &&
-namesSaved
+rounds.length
 ){
 
-showTournament();
-
-renderRound();
+return;
 
 }
 
 }
-catch(e){
+catch(error){
 
-console.error(e);
+console.error(error);
 
 localStorage.removeItem(
 "chessTournament"
 );
 
 }
+
+}
+
+
+/* =========================================
+   بطولة جديدة
+========================================= */
+
+function newTournament(){
+
+const answer=
+confirm(
+"هل أنت متأكد من بدء بطولة جديدة؟ سيتم حذف البطولة الحالية بالكامل."
+);
+
+
+if(!answer){
+
+return;
+
+}
+
+
+/*
+   حذف كل البيانات القديمة
+*/
+
+localStorage.removeItem(
+"chessTournament"
+);
+
+
+players=[];
+
+rounds=[];
+
+currentRound=0;
+
+tournamentSaved=false;
+
+
+/*
+   إغلاق شاشة الاحتفال
+*/
+
+document
+.getElementById(
+"celebrationOverlay"
+)
+.classList
+.remove("show");
+
+
+/*
+   إخفاء كل الشاشات
+*/
+
+document
+.getElementById(
+"tournamentScreen"
+)
+.classList
+.add("hidden");
+
+
+document
+.getElementById(
+"championScreen"
+)
+.classList
+.add("hidden");
+
+
+/*
+   العودة للصفحة الرئيسية
+*/
+
+document
+.getElementById(
+"homeScreen"
+)
+.classList
+.remove("hidden");
 
 }
 
@@ -3893,36 +3290,38 @@ return;
 
 
 document
-.getElementById("tournamentScreen")
+.getElementById(
+"tournamentScreen"
+)
 .classList
 .add("hidden");
 
 
 document
-.getElementById("playersScreen")
+.getElementById(
+"homeScreen"
+)
 .classList
 .add("hidden");
 
 
 document
-.getElementById("homeScreen")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("championScreen")
+.getElementById(
+"championScreen"
+)
 .classList
 .remove("hidden");
 
 
 document
-.getElementById("championName")
+.getElementById(
+"championName"
+)
 .textContent=
 winner.name;
 
 
-saveTournament();
+saveState();
 
 
 setTimeout(
@@ -3970,7 +3369,7 @@ createConfetti();
 
 
 /* =========================================
-   القصاصات
+   Confetti
 ========================================= */
 
 function createConfetti(){
@@ -4009,6 +3408,7 @@ i++
 
 const piece=
 document.createElement("div");
+
 
 piece.className=
 "confetti";
@@ -4085,69 +3485,233 @@ el=>el.remove()
 
 
 /* =========================================
-   بطولة جديدة
+   الملخص
 ========================================= */
 
-function newTournament(){
+function renderSummary(){
 
-if(
-!confirm(
-"هل أنت متأكد من بدء بطولة جديدة؟ سيتم حذف البطولة الحالية وأسماء اللاعبين."
-)
-){
+const container=
+document.getElementById(
+"summaryContainer"
+);
+
+
+container.innerHTML="";
+
+
+const round=
+rounds[currentRound];
+
+
+if(!round){
 
 return;
 
 }
 
 
-localStorage.removeItem(
-"chessTournament"
+const header=
+document.createElement("div");
+
+
+header.className=
+"summary-row summary-header";
+
+
+header.innerHTML=`
+
+<div>
+#
+</div>
+
+<div>
+اللاعب الأول
+</div>
+
+<div>
+النتيجة
+</div>
+
+<div>
+اللاعب الثاني
+</div>
+
+<div>
+الفائز
+</div>
+
+`;
+
+
+container.appendChild(header);
+
+
+round.matches.forEach(
+(match,index)=>{
+
+const row=
+document.createElement("div");
+
+
+row.className=
+"summary-row";
+
+
+let result="—";
+
+
+if(match.winner){
+
+if(
+match.winner===match.player1
+){
+
+result="1 - 0";
+
+}
+else{
+
+result="0 - 1";
+
+}
+
+}
+
+
+row.innerHTML=`
+
+<div>
+${index+1}
+</div>
+
+<div>
+${match.player1
+?
+escapeHtml(match.player1.name)
+:
+"—"}
+</div>
+
+<div>
+<b>
+${result}
+</b>
+</div>
+
+<div>
+${match.player2
+?
+escapeHtml(match.player2.name)
+:
+"—"}
+</div>
+
+<div>
+${
+match.winner
+?
+"✅ "+escapeHtml(match.winner.name)
+:
+"لم يحسم بعد"
+}
+</div>
+
+`;
+
+
+container.appendChild(row);
+
+}
+
 );
-
-
-players=[];
-
-rounds=[];
-
-currentRound=0;
-
-namesSaved=false;
-
-selectedPlayer=null;
-
-
-document
-.getElementById("tournamentScreen")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("championScreen")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("celebrationOverlay")
-.classList
-.remove("show");
-
-
-document
-.getElementById("playersScreen")
-.classList
-.remove("hidden");
-
-
-createPlayerInputs();
 
 }
 
 
 /* =========================================
-   تشغيل البرنامج
+   الإحصائيات
+========================================= */
+
+function updateStats(){
+
+const round=
+rounds[currentRound];
+
+
+if(!round){
+
+return;
+
+}
+
+
+const done=
+round.matches.filter(
+match=>match.winner
+).length;
+
+
+const activePlayers=
+round.matches.filter(
+match=>
+match.player1 &&
+match.player2
+).length*2;
+
+
+document
+.getElementById(
+"statRound"
+)
+.textContent=
+round.name;
+
+
+document
+.getElementById(
+"statMatches"
+)
+.textContent=
+round.matches.length;
+
+
+document
+.getElementById(
+"statDone"
+)
+.textContent=
+done;
+
+
+document
+.getElementById(
+"statPlayers"
+)
+.textContent=
+activePlayers;
+
+}
+
+
+/* =========================================
+   حماية النصوص
+========================================= */
+
+function escapeHtml(text){
+
+const div=
+document.createElement("div");
+
+div.textContent=
+text;
+
+return div.innerHTML;
+
+}
+
+
+/* =========================================
+   التشغيل
 ========================================= */
 
 loadTournament();
@@ -4155,4 +3719,5 @@ loadTournament();
 </script>
 
 </body>
+
    </html>
