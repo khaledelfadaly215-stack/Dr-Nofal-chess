@@ -2411,35 +2411,18 @@ class="hidden"
 </div>
 
 
-<div class="card">
-
-<div class="toolbar">
-
-<div>
-
-<h2 id="roundTitle">
+<div
+id="roundTitle"
+class="hidden"
+>
 دور الـ32
-</h2>
+</div>
 
 <div
 id="status"
-class="status"
+class="hidden"
 >
 لم يتم حسم أي مباراة.
-</div>
-
-</div>
-
-
-<button
-class="red"
-onclick="newTournament()"
->
-🆕️ بطولة جديدة
-</button>
-
-</div>
-
 </div>
 
 
@@ -2455,6 +2438,14 @@ onclick="newTournament()"
 🏆 شجرة البطولة
 </h2>
 
+<div style="display:flex;align-items:center;gap:8px;">
+
+<button
+class="red"
+onclick="newTournament()"
+>
+🆕️ بطولة جديدة
+</button>
 
 <button
 id="nextRoundBtn"
@@ -2466,6 +2457,7 @@ onclick="nextRound()"
 
 </div>
 
+</div>
 
 <div class="bracket-wrap">
 
